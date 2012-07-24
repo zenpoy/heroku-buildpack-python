@@ -14,7 +14,7 @@ VENDORED_GIT_REPO="git@github.com:wyn/${VENDORED_GIT_NAME}.git"
 VENDORED_BINARIES="openopt-0.38"
 
 # If numpy or scipy exists within setup.py, use vendored binaries.
-if (grep -iq "openopt" setup.py) then
+if (grep -iq "openopt" requirements.txt) then
   echo "-----> Noticed openopt. Bootstrapping with prebuilt binaries."
   cd .heroku
   echo "-----> heroku contents: $(ls)"
