@@ -14,7 +14,7 @@ VENDORED_GIT_REPO="git://github.com/wyn/${VENDORED_GIT_NAME}.git"
 VENDORED_BINARIES="h5py-2.0.1"
 
 # If numpy or scipy exists within setup.py, use vendored binaries.
-if (grep -iq "h5py" requierments.txt) then
+if (grep -iq "h5py" requirements.txt) then
   echo "-----> Noticed h5py. Bootstrapping with prebuilt binaries."
   cd .heroku
   echo "-----> heroku contents: $(ls)"
