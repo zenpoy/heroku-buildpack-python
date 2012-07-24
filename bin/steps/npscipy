@@ -41,7 +41,7 @@ if (grep -iq -e "numpy" -e "scipy" requirements.txt) then
   export LAPACK=$(pwd)/vendor/lib/atlas-base/atlas/liblapack.a
   export ATLAS=$(pwd)/vendor/lib/atlas-base/libatlas.a
   export LIBRARY_PATH=$(pwd)/lib/atlas-base/atlas:$(pwd)/vendor/lib:$(pwd)/lib/atlas-base
-  export LD_LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
+  export LD_LIBRARY_PATH=$(pwd)/lib/atlas-base/atlas:$(pwd)/vendor/lib:$(pwd)/lib/atlas-base
 
   if [ -d "venv/lib/python2.7/site-packages/numpy" ]; then
     echo "-----> Using cached numpy."
