@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script serves as the openopt build step of the
+# This script serves as the h5py build step of the
 # [**Python Buildpack**](https://github.com/heroku/heroku-buildpack-python) 
 # compiler. 
 # 
@@ -8,21 +8,20 @@
 # adapter between a Python application and Heroku's runtime.
 #
 # This script is invoked by [`bin/compile`](/).
-VENDORED_GIT_NAME="openopt-bdist"
+VENDORED_GIT_NAME="h5py-bdist"
 VENDORED_GIT_REPO="git://github.com/wyn/${VENDORED_GIT_NAME}.git"
 # The location of the pre-compiled bdist
-VENDORED_BINARIES="openopt-0.38"
+VENDORED_BINARIES="h5py-2.0.1"
 
 # If numpy or scipy exists within setup.py, use vendored binaries.
-if (grep -iq "openopt" requirements.txt) then
-  echo "-----> Noticed openopt. Bootstrapping with prebuilt binaries."
+if (grep -iq "h5py" requierments.txt) then
+  echo "-----> Noticed h5py. Bootstrapping with prebuilt binaries."
   cd .heroku
   echo "-----> heroku contents: $(ls)"
 
   ## check whether this has happened already
-  ## set BLAS/LAPACK/ATLAS
-  if [ -d "venv/lib/python2.7/site-packages/openopt*" ]; then
-    echo "-----> Using cached openopt."
+  if [ -d "venv/lib/python2.7/site-packages/h5py*" ]; then
+    echo "-----> Using cached h5py."
   else
     echo "-----> Creating/downloading bdist."
     # Download and extract everything into target vendor directory.

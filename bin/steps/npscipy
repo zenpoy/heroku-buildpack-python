@@ -25,7 +25,7 @@ if (grep -iq -e "numpy" -e "scipy" requirements.txt) then
 
   ## check whether this has happened already
   ## set BLAS/LAPACK/ATLAS
-  if [ -d "venv/lib/atlas-base" ]; then
+  if [ -d "vendor/lib/atlas-base" ]; then
     echo "-----> Using cached binaries."
   else
     echo "-----> Creating/downloading binaries."
@@ -34,14 +34,12 @@ if (grep -iq -e "numpy" -e "scipy" requirements.txt) then
     echo "-----> heroku contents: $(ls)"
     echo "-----> heroku binaries contents: $(ls ${VENDORED_GIT_NAME})"
     tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_BINARIES}.tar.gz > /dev/null
-    cp -r vendor/* venv/
-    rm -r vendor
   fi
-  export BLAS=$(pwd)/venv/lib/atlas-base/atlas/libblas.a
-  export LAPACK=$(pwd)/venv/lib/atlas-base/atlas/liblapack.a
-  export ATLAS=$(pwd)/venv/lib/atlas-base/libatlas.a
-  export LIBRARY_PATH=$(pwd)/venv/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
-  export LD_LIBRARY_PATH=$(pwd)/venv/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
+  export BLAS=$(pwd)/vendor/lib/atlas-base/atlas/libblas.a
+  export LAPACK=$(pwd)/vendor/lib/atlas-base/atlas/liblapack.a
+  export ATLAS=$(pwd)/vendor/lib/atlas-base/libatlas.a
+  export LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
+  export LD_LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
 
   if [ -d "venv/lib/python2.7/site-packages/numpy" ]; then
     echo "-----> Using cached numpy."
