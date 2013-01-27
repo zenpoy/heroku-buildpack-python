@@ -10,7 +10,7 @@
 # This script is invoked by [`bin/compile`](/).
 
 # If skikit-learn exists within requirements.txt then use binaries.
-if (grep -iq -e "scikit-learn" setup.py) then
+if (grep -iq -e "scikit-learn" requirements.txt) then
   echo "-----> Noticed scikit-learn. Installing..."
   cd .heroku
   echo "-----> heroku contents: $(ls)"
