@@ -196,6 +196,8 @@ source $BIN_DIR/steps/pylibmc
 # Numpy/scipy support
 source $BIN_DIR/steps/npscipy
 ## stuff that's dependent on numpy/scipy
+# Scikit-learn
+source $BIN_DIR/steps/scikit-learn
 # OpenOpt support
 source $BIN_DIR/steps/openopt
 # h5py support
