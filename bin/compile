@@ -196,8 +196,6 @@ source $BIN_DIR/steps/pylibmc
 # Numpy/scipy support
 source $BIN_DIR/steps/npscipy
 ## stuff that's dependent on numpy/scipy
-# Scikit-learn
-source $BIN_DIR/steps/scikit-learn
 # OpenOpt support
 source $BIN_DIR/steps/openopt
 # h5py support
@@ -213,6 +211,9 @@ fi
 
 # Install dependencies with Pip.
 puts-step "Installing dependencies using pip version $(pip --version | awk '{print $2}')"
+
+# Scikit-learn (using pip)
+source $BIN_DIR/steps/scikit-learn
 pip install --use-mirrors -r requirements.txt --exists-action=w --src=./.heroku/src | indent
 
 # Do additional application hackery if applications appears to be a Django app.
